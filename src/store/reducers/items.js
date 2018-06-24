@@ -1,7 +1,8 @@
 import { 
     ITEMS_REQUEST, 
-    ITEMS_REQUEST_SUCCESS } from '../constants';
-  import { convertArrToObj } from '../../utils/utils';
+    ITEMS_REQUEST_SUCCESS,
+    ITEM_PROCESS_REQUEST_SUCCESS } from '../constants';
+  import { convertArrToObj, extractItemFromResult } from '../../utils/utils';
   import { success, initState } from './reducerHelper';
   
   export default function(state = initState, action){
@@ -22,11 +23,27 @@ import {
       property keys. 
       */
       case ITEMS_REQUEST_SUCCESS: {
-        let newItems = convertArrToObj(action.payload.items, `fromred`);
-        console.log(`newitems`, newItems)
+        let newItems = convertArrToObj(action.payload.items);
         return {
           ...success,
           items: newItems
+        }
+      }
+
+      /* Replaces or adds a specific post in the store with all of
+      its modifications. 
+      */
+      case ITEM_PROCESS_REQUEST_SUCCESS: {
+        const item = extractItemFromResult(action.payload);
+
+        console.log(item)
+        return {
+          ...state,
+          ...success,
+          items: {
+            ...state.items,
+            [item.itemId]: item
+          }
         }
       }
   

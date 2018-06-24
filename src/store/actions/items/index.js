@@ -14,7 +14,7 @@ import {
   /*Get Post */
   export const requestItem = id => ({
     type: ITEM_REQUEST,
-    payload: id
+    id
   });
   
   /* Getall Success */

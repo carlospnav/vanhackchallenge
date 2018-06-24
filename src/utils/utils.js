@@ -8,14 +8,12 @@ export const convertObjToArr = obj => Object.keys(obj)
 /*Converts an Array of entities into an Obj with
 their ids as keys.  
 */
-export const convertArrToObj = (arr, a) => { console.log(a); return arr
-  .reduce((acc, current) => {
+export const convertArrToObj = arr =>
+ arr.reduce((acc, current) => {
     acc[current.itemId] = current
     return acc;
-  }, {}) } 
+  }, {}) 
 
-// export const convertToReadableDate = timestamp => new Date(timestamp)
-//   .toLocaleDateString("br")
-//   .split(",")[0]
-//   .split("-")
-//   .reduce((str, current) => `${current}/${str}`);
+/* Extracts the specific item out of the result returned
+from Walmart's API. */
+export const extractItemFromResult = res => res.items[0];

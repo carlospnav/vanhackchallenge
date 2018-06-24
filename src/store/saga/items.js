@@ -28,9 +28,17 @@ function* fetchItems(action){
   }
 }
 
-// const fetchItem = injectProcessAction(API.getItem);
+function* fetchItem(action){
+    try {
+        const item = yield call(API.getItem, action.id);
+        yield put(successRequestProcessItem(item));
+    }
+    catch (e){
+        yield throwError(e);
+    }
+}
 
 export const itemsSagas = [
   takeEvery(ITEMS_REQUEST, fetchItems),
-//   takeEvery(ITEM_REQUEST, fetchItem)
+  takeEvery(ITEM_REQUEST, fetchItem)
 ];

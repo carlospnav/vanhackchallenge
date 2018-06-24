@@ -9,7 +9,8 @@ import {convertObjToArr} from './utils/utils'
 class App extends Component {
 
   componentDidMount(){
-    this.props.dispatch(requestItems());
+    // this.props.dispatch(requestItems());
+    this.props.dispatch(requestItem('10295354'));
   }
 
   render() {
@@ -29,8 +30,8 @@ class App extends Component {
 }
 
 class BaseTestComponent extends Component{
+  
   render(){
-    console.log(`rendered Items`, this.props.items)
     return (
       <p>oi</p>
     )
