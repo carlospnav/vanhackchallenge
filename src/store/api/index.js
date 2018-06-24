@@ -14,6 +14,7 @@ const baseAPI = {
   /*Returns all items from an entity's collection.
   */
   getAll: function(query = `cheese`){
+    console.log(query)
     return fetch(
       `${URL}search?apiKey=${API_KEY}&categoryId=${FOOD_CATEGORY}&query=${query}`,
       {

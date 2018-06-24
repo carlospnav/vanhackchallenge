@@ -1,55 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import { requestItems, requestItem } from './store/actions/items';
 import {connect} from 'react-redux';
 import {convertObjToArr} from './utils/utils'
+import {requestItems} from './store/actions/items'
+
+import SearchItems from './components/SearchItems';
 
 class App extends Component {
 
   componentDidMount(){
     // this.props.dispatch(requestItems());
-    this.props.dispatch(requestItem('10295354'));
+  }
+
+  onRequestItems = query => {
+    this.props.dispatch(requestItems(query));
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">aa</h1>
-        </header>
-        <ConnectedTestComponent />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <SearchItems loading={this.props.loading} productList={this.props.items} onSearch={this.onRequestItems} />
     );
   }
 }
 
-class BaseTestComponent extends Component{
-  
-  render(){
-    return (
-      <p>oi</p>
-    )
-  }
-}
-
 const mapStateToProps = (state) => {
-  const {items} = state;
+  const {items, processingRequest } = state;
   let itemsObj;
-
+  
   if (items)
     itemsObj = convertObjToArr(items);
 
   return {
-    items: itemsObj
+    items: itemsObj,
+    loading: processingRequest
   }
 }
 
-const ConnectedTestComponent = connect(mapStateToProps)(BaseTestComponent);
-
-export default App;
+export default connect(mapStateToProps)(App);

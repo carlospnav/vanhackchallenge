@@ -36,7 +36,6 @@ import {
       case ITEM_PROCESS_REQUEST_SUCCESS: {
         const item = extractItemFromResult(action.payload);
 
-        console.log(item)
         return {
           ...state,
           ...success,

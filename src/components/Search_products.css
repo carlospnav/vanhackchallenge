@@ -1,0 +1,90 @@
+.search_products {
+    text-align: left; 
+    background-color: #f2f2f2; 
+    height: 100%;
+  }
+  
+  .search_products-logo {
+    height: 35px;
+  }
+  
+  .search_products-header {
+    text-align: left; 
+    background-color: #e91431;
+    height: 40px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .search_products-title {
+    font-size: 1.5em;
+  }
+  
+  .search_products-intro {
+    font-size: large;
+  }
+  
+  input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .productList {
+  padding: 10px;
+  list-style-type: none;
+  
+  }
+  
+  .productList li {
+    background: #FFF;
+    margin: 5px;
+    padding:10px;
+  }
+  
+  .product {
+    margin:5px;
+    font-size: 0.7em;
+    color: #4d4d4d;
+    text-align: left; 
+    }
+
+  .product-label {
+    margin:5px;
+    font-size: 0.8em;
+    color: #4d4d4d;
+    text-align: left; 
+    font-weight: bold;
+  }
+          
+  .go-shopping {
+    margin:20px;
+    font-size: 0.8em;
+    color: #4d4d4d;
+    text-align: left; 
+
+    }
+
+  .button-class {
+    margin:10px;
+    text-align: right; 
+  }
+            
+  .product-container {
+    background-color: #FFFFBB;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /*width: 400px; */
+    padding: 10px;
+    margin: 10px;
+    float: left;
+    width: 200px;
+    height: 250px;
+    font-family:  Arial;
+    font-size: 0.8em;
+  }
