@@ -6,8 +6,9 @@ import {
   } from "../../constants";
   
   /*GetAll Posts*/
-  export const requestItems = () => ({
-    type: ITEMS_REQUEST
+  export const requestItems = query => ({
+    type: ITEMS_REQUEST,
+    query
   });
   
   /*Get Post */

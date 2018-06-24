@@ -1,4 +1,6 @@
-export const URL = "http://localhost:3001"; //CHANGE WITH API CODE
+export const API_KEY = "y4wk7rmqvcgbhtqwpteewcbw";
+export const FOOD_CATEGORY = "976759";
+export const URL = `https://cors.now.sh/http://api.walmartlabs.com/v1/`;
 export const ITEMS = "items";
 export const CARTITEMS = "cartitems";
 export const ITEMS_REQUEST = "ITEMS_REQUEST";

@@ -8,11 +8,11 @@ export const convertObjToArr = obj => Object.keys(obj)
 /*Converts an Array of entities into an Obj with
 their ids as keys.  
 */
-export const convertArrToObj = arr => arr
+export const convertArrToObj = (arr, a) => { console.log(a); return arr
   .reduce((acc, current) => {
-    acc[current.id] = current
+    acc[current.itemId] = current
     return acc;
-  }, {})
+  }, {}) } 
 
 // export const convertToReadableDate = timestamp => new Date(timestamp)
 //   .toLocaleDateString("br")

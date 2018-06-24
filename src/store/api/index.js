@@ -1,4 +1,4 @@
-import { URL, ITEMS } from "../constants";
+import { URL, FOOD_CATEGORY, API_KEY } from "../constants";
 // const uuidv1 = require("uuid/v1");
  
 /*Headers for the AJAX request.*/
@@ -13,9 +13,9 @@ methods
 const baseAPI = {
   /*Returns all items from an entity's collection.
   */
-  getAll: function(entity = ITEMS){
+  getAll: function(query = `cheese`){
     return fetch(
-      `${URL}/${entity}`,
+      `${URL}search?apiKey=${API_KEY}&categoryId=${FOOD_CATEGORY}&query=${query}`,
       {
         method: "GET",
         headers
@@ -26,18 +26,16 @@ const baseAPI = {
 
   /*Returns an item from an entity based on its ID. 
   */
-  getSingle: function(entity){
-    return function(id){
-      return fetch(
-        `${URL}/${entity}/${id}`,
-        {
-          method: "GET",
-          headers
-        }
-      )
-      .then(res => res.json());
-    }
-  },
+//   getSingle: function(id){
+//       return fetch(
+//         `${URL}items?apiKey=${API_KEY}&ids=${id}`,
+//         {
+//           method: "GET",
+//           headers
+//         }
+//       )
+//       .then(res => res.json());
+//   },
 
   /*Adds an item to an entity's collection. 
   */
@@ -114,7 +112,7 @@ const baseAPI = {
 export default {
   /*Returns all items.*/
   getItems: baseAPI.getAll,
-  getPost: baseAPI.getSingle(ITEMS),
+//   getItem: baseAPI.getSingle(ITEMS),
 //   addPost: baseAPI.add(POSTS),
 //   editPost: baseAPI.edit(POSTS), 
 //   votePost: baseAPI.vote(POSTS),

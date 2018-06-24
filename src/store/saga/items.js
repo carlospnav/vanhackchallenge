@@ -18,9 +18,9 @@ function imported from sagaHelper.js. All sagas use the same helper file.
 */
 const injectProcessAction = processEntity(successRequestProcessItem);
 
-function* fetchItems(){
+function* fetchItems(action){
   try{
-    const items = yield call(API.getItems);
+    const items = yield call(API.getItems, action.query);
     yield put(successRequestItems(items));
   }
   catch (e){
@@ -28,9 +28,9 @@ function* fetchItems(){
   }
 }
 
-const fetchItem = injectProcessAction(API.getItem);
+// const fetchItem = injectProcessAction(API.getItem);
 
 export const itemsSagas = [
   takeEvery(ITEMS_REQUEST, fetchItems),
-  takeEvery(ITEM_REQUEST, fetchItem)
+//   takeEvery(ITEM_REQUEST, fetchItem)
 ];

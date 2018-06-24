@@ -22,9 +22,11 @@ import {
       property keys. 
       */
       case ITEMS_REQUEST_SUCCESS: {
+        let newItems = convertArrToObj(action.payload.items, `fromred`);
+        console.log(`newitems`, newItems)
         return {
           ...success,
-          items: convertArrToObj(action.payload)
+          items: newItems
         }
       }
   
